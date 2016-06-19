@@ -4,7 +4,7 @@ The purpose of this repo is to build an example of how to use Allure + Junit + D
 ## Run
 ### Manually
 1. `gradle`
-2. `java -javaagent:build/libs/deps/aspectjweaver-1.8.0.jar -jar build/libs/allure-docker-example-1.1.0-SNAPSHOT.jar`
+2. `java -javaagent:build/libs/deps/aspectjweaver-1.8.0.jar -jar build/libs/allure-docker-example-1.1.0.jar`
 3. `allure generate -o allure-report allure-result`
 4. `allure report open -p 8000`
 
