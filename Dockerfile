@@ -1,7 +1,7 @@
 FROM java:8-jdk
 MAINTAINER Dmytro Serdiuk <dmytro.serdiuk@gmai.com>
 
-LABEL Description="This image is used to start the foobar executable"
+LABEL Description="This image is used to show the Allure reposting"
 LABEL Vendor="extsoft"
 LABEL Version="1.0.0"
 
