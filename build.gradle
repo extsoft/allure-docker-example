@@ -1,5 +1,5 @@
 group 'com.extsoft'
-version '1.0.0-SNAPSHOT'
+version '1.1.0-SNAPSHOT'
 description 'Allure + Docker + Junit example'
 
 apply plugin: 'java'
@@ -28,8 +28,8 @@ dependencies {
 //        }
         manifest {
             attributes 'Main-Class': 'com.extsoft.allure.docker.example.App'
-            attributes "Class-Path": fileTree("$buildDir/libs/deps/").files.collect {
-                it.getAbsolutePath().replaceAll("^$buildDir/libs/", "")
+            attributes "Class-Path": configurations.runtime.collect {
+                "deps/" + it.getName()
             }.join(' ')
         }
     }
