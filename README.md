@@ -2,14 +2,23 @@
 The purpose of this repo is to build an example of how to use Allure + Junit + Docker.
 
 ## Run
-Just run inside project root `./run.sh`.
+### Manually
+1. `gradle`
+2. `java -javaagent:build/libs/deps/aspectjweaver-1.8.0.jar -jar build/libs/allure-docker-example-1.1.0.jar`
+3. `allure generate -o allure-report allure-result`
+4. `allure report open -p 8000`
 
-Open Allure report on your host machine:
-- Linux host: [http://localhost:8000/#/](http://localhost:8000/#/)
-- Boot2docker host (Windows, Mac): usually [http://192.168.99.100:8000/#/](http://192.168.99.100:8000/#/) . 
+
+### Docker
+1. ```docker run -t -i -p 8000:80 extsoft/allure-docker-example ```
+2. Open Allure report on your host machine:
+  - Linux host: [http://localhost:8000/#/](http://localhost:8000/#/)
+  - Boot2docker host (Windows, Mac): usually [http://192.168.99.100:8000/#/](http://192.168.99.100:8000/#/) . 
 If it doesn't work, please find the IP address of your docker machine by `docker-machine ip my-machine-name` 
 and replace `192.168.99.100` to evaluated IP.
 
+### Build image locally
+``` docker build -t extsoft/allure-docker-example . ```
 
 ## License
 ```
