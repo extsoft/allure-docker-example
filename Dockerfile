@@ -5,7 +5,7 @@ LABEL Description="This image is used to show the Allure reposting"
 LABEL Vendor="extsoft"
 LABEL Version="1.0.0"
 
-ENV MAIN_JAR 'allure-docker-example-1.1.0-SNAPSHOT.jar'
+ENV MAIN_JAR 'allure-docker-example-1.1.0.jar'
 ENV ASPECT_JAR 'deps/aspectjweaver-1.8.0.jar'
 ENV GRADLE_VERSION 2.13
 ENV MAIN_DIR /allure-docker-example
