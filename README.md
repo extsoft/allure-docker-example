@@ -1,6 +1,12 @@
 # allure-docker-example
 The purpose of this repo is to build an example of how to use Allure + Junit + Docker.
 
+## Automation checks
+Code: 
+- master: [![Build Status](https://travis-ci.org/extsoft/allure-docker-example.svg?branch=master)](https://travis-ci.org/extsoft/allure-docker-example) 
+- develop: [![Build Status](https://travis-ci.org/extsoft/allure-docker-example.svg?branch=develop)](https://travis-ci.org/extsoft/allure-docker-example)
+
+
 ## Run
 ### Manually
 1. `gradle`
