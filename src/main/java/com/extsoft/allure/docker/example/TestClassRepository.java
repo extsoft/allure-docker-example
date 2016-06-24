@@ -74,7 +74,7 @@ public class TestClassRepository {
             });
             return files;
         } catch (IOException e) {
-            throw new RuntimeException("Unable to find tes classes: " + e.getMessage());
+            throw new TestClassRepositoryException("Unable to find tes classes: " + e.getMessage());
         }
     }
 
@@ -110,14 +110,13 @@ public class TestClassRepository {
         String className = name.replaceAll("[/\\\\]", ".").replaceFirst("^\\.", "").replace(".class", "");
         try {
             return Class.forName(className);
-        } catch (Throwable e) {
+        } catch (Exception e) {
             return null;
         }
     }
 
     private void searchJar(Set<Class<?>> classes, File file) {
-        try {
-            ZipInputStream zip = new ZipInputStream(new FileInputStream(file));
+        try (ZipInputStream zip = new ZipInputStream(new FileInputStream(file))) {
             for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
                 String name = entry.getName();
                 if (mathPattern(name)) {
