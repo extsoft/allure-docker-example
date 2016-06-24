@@ -21,7 +21,7 @@ public class AllPassedTests2 {
         attach("second");
         step1();
         step2();
-        throw new RuntimeException();
+        throw new TestsException();
     }
 
     @Attachment(type = "text/plain", value = "Very important")

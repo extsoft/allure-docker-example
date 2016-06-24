@@ -5,6 +5,9 @@ import ru.yandex.qatools.allure.junit.AllureRunListener;
 
 public class App {
 
+    private App() {
+    }
+
     public static void main(String[] args) {
         System.setProperty("allure.results.directory", "allure-result");
         TestClassRepository testClassRepository = new TestClassRepository("^com.extsoft.allure.docker.example.tests.+");
