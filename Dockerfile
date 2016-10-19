@@ -23,7 +23,7 @@ ENV GRADLE_HOME /opt/gradle-${GRADLE_VERSION}
 ENV PATH $PATH:$GRADLE_HOME/bin
 
 # Inslate Allure CLI
-RUN wget https://github.com/allure-framework/allure-core/releases/download/allure-core-1.4.23/allure-commandline.zip && \
+RUN wget https://github.com/allure-framework/allure-core/releases/download/allure-core-1.4.24.RC2/allure-commandline.zip && \
     unzip allure-commandline.zip && bin/allure && rm allure-commandline.zip
 
 # Prepare jars
