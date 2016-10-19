@@ -9,6 +9,7 @@ ENV MAIN_JAR 'allure-docker-example-1.2.0.jar'
 ENV ASPECT_JAR 'deps/aspectjweaver-1.8.0.jar'
 ENV GRADLE_VERSION 2.13
 ENV MAIN_DIR /allure-docker-example
+ENV BUILD_DIR ${MAIN_DIR}/build
 
 # Update packages  and install dependencies
 RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
@@ -27,14 +28,17 @@ RUN wget https://github.com/allure-framework/allure-core/releases/download/allur
     unzip allure-commandline.zip && bin/allure && rm allure-commandline.zip
 
 # Prepare jars
-WORKDIR ${MAIN_DIR}
-COPY src ${MAIN_DIR}/src/
-COPY build.gradle ${MAIN_DIR}
-COPY gradle.properties ${MAIN_DIR}
-COPY settings.gradle ${MAIN_DIR}
+WORKDIR ${BUILD_DIR}
+COPY src ${BUILD_DIR}/src/
+COPY build.gradle ${BUILD_DIR}
+COPY gradle.properties ${BUILD_DIR}
+COPY settings.gradle ${BUILD_DIR}
 RUN gradle
 
-WORKDIR ${MAIN_DIR}/build/libs
+# Set up and clean up
+WORKDIR ${MAIN_DIR}
+RUN cp -r ${BUILD_DIR}/build/libs/* .
+RUN rm -r ${BUILD_DIR}
 
 #Run tests, generate and open report
 CMD java -javaagent:${ASPECT_JAR} -jar ${MAIN_JAR} && \
